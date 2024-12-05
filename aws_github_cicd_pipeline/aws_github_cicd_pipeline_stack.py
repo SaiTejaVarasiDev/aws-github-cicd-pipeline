@@ -2,9 +2,11 @@ from aws_cdk import (
     # Duration,
     Stack,
     # aws_sqs as sqs,
+    Environment,
 )
 from aws_cdk.pipelines import CodePipeline, CodePipelineSource, ShellStep
 from constructs import Construct
+from pipeline_stage.pipeline_stage import PipelineStage
 
 class AwsGithubCicdPipelineStack(Stack):
 
@@ -22,3 +24,7 @@ class AwsGithubCicdPipelineStack(Stack):
                                 )
                                 
                                 )
+        
+        pipeline.add_stage(PipelineStage(self, "dev"
+                                        #  env=Environment()
+                                         ))
